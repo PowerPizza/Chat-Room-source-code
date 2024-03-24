@@ -1,0 +1,37 @@
+.homeOptions_main_body{
+    user-select: none;
+    /* its css present in App.css by class default_conf_layout */
+}
+.homeOptions_main_body .heading_{
+    color: #340531;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.homeOptions_main_body .opt{
+    color: #ffffff;
+    border: none;
+    height: 60px;
+    border: 4px solid transparent;
+    border-radius: 5px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 400ms;
+    width: 100%;
+}
+.homeOptions_main_body .opt.o1{
+    background-color: #dd3545;
+}
+.homeOptions_main_body .opt.o1:hover{
+    background-color: white;
+    color: #dd3545;
+    border: 4px solid currentColor;
+}
+.homeOptions_main_body .opt.o2{
+    background-color: #007bff;
+}
+.homeOptions_main_body .opt.o2:hover{
+    background-color: white;
+    color: #007bff;
+    border: 4px solid currentColor;
+}

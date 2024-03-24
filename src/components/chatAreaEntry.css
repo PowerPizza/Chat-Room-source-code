@@ -1,0 +1,124 @@
+.chatAreaEntry_main_body{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    background-color: #ebebeb;
+    padding: 5px;
+    gap: 5px;
+    margin-top: auto;
+    margin-bottom: 0;
+    align-items: center;
+}
+
+.chatAreaEntry_main_body .file_list{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 160px;
+    background-color: white;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+.chatAreaEntry_main_body .file_list .ele{
+    display: flex;
+    border: 1px solid black;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+    font-size: 18px;
+    border-radius: 2px;
+    padding: 3px;
+    padding-left: 10px;
+}
+
+.chatAreaEntry_main_body .interactives{
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    align-items: center;
+}
+.chatAreaEntry_main_body .interactives .text_entry{
+    width: 100%;
+    border-radius: 5px;
+    font-size: 18px;
+    min-height: 30px;
+    max-height: 100px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 20px;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 1px 1px gray;
+    overflow-y: auto;
+    background-color: white;
+    /* word-wrap: break-word; */
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+.chatAreaEntry_main_body .interactives .text_entry::-webkit-scrollbar{
+    width: 4px;
+}
+.chatAreaEntry_main_body .interactives .text_entry::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+.chatAreaEntry_main_body .interactives .text_entry::-webkit-scrollbar-thumb{
+    background-color: rgba(128, 128, 128, 0.8);
+    border-radius: 5px;
+
+}
+
+.chatAreaEntry_main_body .interactives .btn{
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    height: 40px;
+    aspect-ratio: 1/1;
+}
+
+.chatAreaEntry_main_body .interactives .btn.send{
+    background-image: url('../images/send_icon.svg');   
+}
+
+.chatAreaEntry_main_body .clip_list{
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    height: 260px;
+    width: 200px;
+    background-color: rgb(240, 240, 240);
+    position: absolute;
+    border-radius: 15px;
+    padding: 10px;
+    gap: 5px;
+    box-shadow: -1px 1px 2px 1px black;
+    /* aspect-ratio: 1/1; */
+}
+.chatAreaEntry_main_body .clip_list .itm{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+.chatAreaEntry_main_body .clip_list .itm:hover{
+    background-color: rgb(255, 255, 255);
+}
+.chatAreaEntry_main_body .clip_list .itm img{
+    width: 30px;
+}
+.chatAreaEntry_main_body .clip_list .itm span{
+    font-size: 20px;
+}
+.chatAreaEntry_main_body .btn.clip{
+    background-image: url('../images/clip_icon.svg');
+    height: 30px;
+    aspect-ratio: 1/1;
+}
+
+.chatAreaEntry_main_body .added_file_list{
+    display: flex;
+    flex-direction: column;
+}

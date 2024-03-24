@@ -1,0 +1,64 @@
+.loading_circle_body{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    user-select: none;
+}
+
+.loading_circle_body .content{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.loading_circle_body .content .circle{
+    display: flex;
+    align-items: center;
+    width: 65px;
+    aspect-ratio: 1/1;
+    border: 7px solid transparent;
+    border-left-color: cyan;
+    border-right-color: cyan;
+    border-radius: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    animation: rotate_circle 1s linear infinite;
+}
+.loading_circle_body .content .circle .sub_circle{
+    width: 40px;
+    aspect-ratio: 1/1;
+    border: 7px solid transparent;
+    border-top-color: magenta;
+    border-bottom-color: magenta;
+    border-radius: 30px;
+    margin: auto;
+    animation: rotate_circle 1s linear infinite;
+    box-shadow: 0px 0px 4px 0px lime;
+}
+@keyframes rotate_circle {
+    0% {rotate: 0deg}
+    100% {rotate: 360deg}
+}
+
+.loading_circle_body .content .information{
+    margin-bottom: auto;
+    background-color: #03a9f4;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 2px;
+    border-radius: 4px;
+}

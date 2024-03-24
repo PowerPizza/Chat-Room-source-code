@@ -1,0 +1,22 @@
+.member_ele{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid black;
+}
+
+.member_ele .U_icon{
+    background-image: url('../images/user_icon_single.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+
+.member_ele .texts{
+    display: flex;
+    flex-direction: column;
+    color: #4c4c4c;
+}

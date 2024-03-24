@@ -1,0 +1,31 @@
+.header_main_body{
+    display: flex;
+    width: 100%;
+    height: 70px;
+    background-color: rgb(40, 140, 255);
+    align-items: center;
+    user-select: none;
+}
+.header_main_body .header_text{
+    color: white;
+    font-size: 28px;
+    margin-left: 10px;
+}
+.header_main_body .config_opt{
+    background-image: url('../images/gear_icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 60px;
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    border-radius: 40px;
+    border: 1px solid white;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 5px;
+    transition: 1s ease;
+}
+.header_main_body .config_opt:hover{
+    rotate: 180deg;
+}

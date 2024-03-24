@@ -1,0 +1,96 @@
+.client_msg_body{
+    display: block;
+    padding: 5px;
+}
+.client_msg_body .small_triangle{
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    margin-bottom: -5px;
+    rotate: 45deg;
+}
+.client_msg_body .msg_content{
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    max-width: 300px;
+    background-color: rgb(192, 225, 255);
+    color: rgb(53, 53, 53);
+    border-radius: 5px;
+}
+.client_msg_body .msg_content .message_{
+    font-weight: 500;
+    font-size: 18px;
+    text-align: le;
+    word-wrap: break-word;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    white-space: pre-wrap;
+}
+.client_msg_body .msg_content .hr_line{
+    height: 1px;
+    background-color: black;
+}
+.client_msg_body .msg_content .bot_lbl{
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    margin-right: auto;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+.client_msg_body .msg_content .img_attach{
+    margin: 5px;
+    box-shadow: 0px 0px 2px 1px blue;
+    border-radius: 5px;
+}
+
+.client_msg_body .msg_content .doc_attach{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 4fr 2fr 1fr;
+    border-radius: 5px;
+    background-color: #86ebe3;
+    height: 70px;
+    margin: 7px;
+    margin-top: 0;
+    border: 1px solid blue;
+    padding: 2px;
+    user-select: none;
+}
+.client_msg_body .msg_content .doc_attach span{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.client_msg_body .msg_content .doc_attach label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 10px;
+}
+.client_msg_body .msg_content .doc_attach .doc_icon{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    background-image: url('../images/document_icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 10px;
+}
+.client_msg_body .msg_content .doc_attach .download{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    height: 40px;
+    align-self: center;
+    background-image: url('../images/download_icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    border: 0;
+    background-color: rgb(234, 255, 47);
+    margin-right: 2px;
+    box-shadow: 0px 0px 2px 1px black;
+    cursor: pointer;
+    color: transparent;
+}

@@ -1,0 +1,65 @@
+.roomInfo_main_body{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    position: absolute;
+    top: 70px;
+    right: 5px;
+    margin: auto;
+    height: 350px;
+    border-radius: 15px;
+    background-color: #fff7fe;
+    box-shadow: -1px 1px 3px 1px rgb(184, 184, 184);
+    border: 1px solid gray;
+    padding: 10px;
+    overflow: none;
+    animation: render_anim 400ms;
+    z-index: 1;
+}
+@keyframes render_anim {
+    0% {scale: 0.9; opacity: 0;}
+    100% {scale: 1; opacity: 1;}
+}
+
+.roomInfo_main_body .top_header{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 2px;
+}
+
+.roomInfo_main_body .top_header .heading_{
+    margin: 0;
+    text-align: center;
+    font-size: 24px;
+    color: purple;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.roomInfo_main_body .top_header .close_btn{
+    margin-left: auto;
+    width: 30px;
+    aspect-ratio: 1/1;
+    border-radius: 15px;
+    font-size: 18px;
+    border: 0;
+    text-align: center;
+}
+.roomInfo_main_body .top_header .close_btn:hover{
+    background-color: rgb(255, 78, 78);
+    color: white;
+    cursor: pointer;
+}
+
+.roomInfo_main_body .content{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+.roomInfo_main_body .content::-webkit-scrollbar{
+    display: none;  
+}
+/* improve join link... tomorrow !!!!*/

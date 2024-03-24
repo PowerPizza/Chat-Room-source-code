@@ -1,0 +1,68 @@
+.createNewWin_main_body{
+    user-select: none;
+    gap: 10px;
+    /* its css present in App.css by class default_conf_layout */
+}
+
+.createNewWin_main_body .top_holder{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px solid black;
+}
+.createNewWin_main_body .top_holder .back_btn{
+    background-image: url('../images/left_arrow_icon.svg');
+    background-size: cover;
+    background-position: center;
+    width: 50px;
+    aspect-ratio: 1/1;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.createNewWin_main_body .top_holder .heading_{
+    color: #340531;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.createNewWin_main_body .entry_box{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.createNewWin_main_body .entry_box label{
+    color: #340531;
+    font-size: 20px;
+    white-space: nowrap;
+}
+.createNewWin_main_body .entry_box input{
+    font-size: 20px;
+    width: 100%;
+    outline: none;
+    border: 2px solid #1e78de;
+    border-radius: 3px;
+}
+.createNewWin_main_body .entry_box input:focus{
+    box-shadow: 0px 0px 0px 3px #c6e0f8;
+}
+
+.createNewWin_main_body .create_btn{
+    background-color: #ff8827;
+    font-size: 20px;
+    height: 40px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 400ms;
+    border: 4px solid transparent;
+    cursor: pointer;
+}
+.createNewWin_main_body .create_btn:hover{
+    color: #ff8827;
+    border: 4px solid currentColor;
+    background-color: white;
+}

@@ -1,0 +1,68 @@
+.msgBox_main_body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.msgBox_main_body .content{
+    display: flex;
+    height: 50px;
+    margin: 5px;
+    border-radius: 5px;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    gap: 20px;
+    overflow-y: auto;
+}
+.msgBox_main_body .content .message_text{
+    /* height: 100%; */
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.msgBox_main_body .content .icon{
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+}
+
+.msgBox_main_body .content.alert{
+    color: #fd485b;
+    background-color: #ffe1e3;
+    border-left: 7px solid #fd485b;
+}
+.msgBox_main_body .content.alert .icon{
+    background-image: url('../images/cross_icon_filled.svg');
+}
+
+.msgBox_main_body .content.info{
+    color: #72ccfa;
+    background-color: #d6f0fd;
+    border-left: 7px solid #72ccfa;
+}
+.msgBox_main_body .content.info .icon{
+    background-image: url('../images/info_icon_filled.svg');
+}
+
+.msgBox_main_body .content.success{
+    color: #2cd672;
+    background-color: #c2f6d9;
+    border-left: 7px solid #2cd672;
+}
+.msgBox_main_body .content.success .icon{
+    background-image: url('../images/tick_icon_filled.svg');
+}
+
+.msgBox_main_body .content.warning{
+    color: #fea500;
+    background-color: #ffe9c3;
+    border-left: 7px solid #fea500;
+}
+.msgBox_main_body .content.warning .icon{
+    background-image: url('../images/warning_icon_filled.svg');
+}

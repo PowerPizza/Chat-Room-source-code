@@ -1,0 +1,55 @@
+.settings_main_body{
+    display: block;
+    min-width: 250px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    /* height: 300px; */
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: -1px 1px 3px 1px rgb(184, 184, 184);
+    border: 1px solid gray;
+    padding: 10px;
+    overflow: none;
+    animation: render_anim 400ms;
+}
+@keyframes render_anim {
+    0% {scale: 0.9; opacity: 0;}
+    100% {scale: 1; opacity: 1;}
+}
+
+.settings_main_body .top_header{
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+.settings_main_body .top_header .heading_{
+    width: 100%;
+    text-align: center;
+    color: blueviolet;
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.settings_main_body .entries_form{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto;
+    row-gap: 5px;
+    align-items: center;
+}
+.settings_main_body .entries_form label{
+    color: rgb(116, 0, 170);
+    font-size: 20px;
+    font-weight: 600;
+}
+.settings_main_body .entries_form input{
+    width: auto;
+    height: min-content;
+    /* margin-top: auto;
+    margin-bottom: auto; */
+}

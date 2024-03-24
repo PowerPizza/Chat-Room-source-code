@@ -1,0 +1,25 @@
+.chatArea_main_body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+    /* z-index: -2; */
+}
+.chatArea_main_body .typing_status{
+    background-color: rgb(239, 226, 255);
+    padding-left: 5px;
+    overflow-x: auto;
+    white-space: nowrap;
+    user-select: none;
+    color: black;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+    opacity: 0.7;
+    padding-left: 5px;
+}
+.chatArea_main_body .typing_status::-webkit-scrollbar{
+    display: none;
+}
