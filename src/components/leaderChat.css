@@ -29,7 +29,7 @@
 .leader_msg_body .msg_content .message_{
     font-weight: 500;
     font-size: 18px;
-    text-align: right;
+    text-align: left;
     word-wrap: break-word;
     white-space: pre-wrap;
     margin-left: 5px;

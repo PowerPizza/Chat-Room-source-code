@@ -34,26 +34,27 @@ import LoadingCircle from './components/LoadingCircle'
 */
 
 let web_sock = null;
+const initial_state = {
+  setting_win_disp: "none",
+  memList_win_disp: "none",
+  roomInfo_win_disp: "none",
+  chatRoomCreated: false,
+  messages: [],
+  members: [],
+  room_id: String(Math.random()*1000).replace(".", "@").slice(0, 12),
+  room_name: null,
+  user_id: null,
+  user_name: "",
+  user_type: null,
+  message_box: null,
+  dialog_box: null,
+  currently_typing: null,
+  loading_screen: null
+}
 export default class App extends Component {
   constructor() {
     super();
-    this.state = {
-      setting_win_disp: "none",
-      memList_win_disp: "none",
-      roomInfo_win_disp: "none",
-      chatRoomCreated: false,
-      messages: [],
-      members: [],
-      room_id: String(Math.random()*1000).replace(".", "@").slice(0, 12),
-      room_name: null,
-      user_id: null,
-      user_name: "",
-      user_type: null,
-      message_box: null,
-      dialog_box: null,
-      currently_typing: null,
-      loading_screen: null
-    }
+    this.state = JSON.parse(JSON.stringify(initial_state));  // using JSON method of deeply coying object because on changing array values it changes actual object which in const.
   }
 
   establish_websocket = (after_connect) => {
@@ -127,14 +128,17 @@ export default class App extends Component {
       this.setState({currently_typing: json_data["cur_typing"]})
     })
 
-    web_sock.on('roomClosed', () => {
-      this.showLoadingCircle();
-      web_sock.close();
-      this.showMessageBox("alert", "Chat room has been closed by host. Redirecting in 5sec.");
-      setTimeout(()=>{
-        this.hideLoadingCircle();
-        window.location.href = "/";
-      }, 5000);
+    web_sock.on("exitResp", (resp)=>{
+      resp = JSON.parse(resp);
+      let old_user_type = this.state.user_type;
+      if (resp["status"] === "OK"){
+        web_sock.close();
+        web_sock = null;
+        this.setState(JSON.parse(JSON.stringify(initial_state)));
+        if (resp["exit_mode"] === "close" && old_user_type !== "admin"){
+          this.showMessageBox("info", "Host have closed the chat room.");
+        }
+      }
     });
 
     web_sock.on("createError", (error)=>{
@@ -174,8 +178,8 @@ export default class App extends Component {
 
       web_sock.on("proceedJoining", (data_) => {
         this.setState({ chatRoomCreated: true, room_name: data_});
+        this.hideLoadingCircle();
       });
-      this.hideLoadingCircle();
     });
   }
 
@@ -257,17 +261,16 @@ export default class App extends Component {
   }
 
   on_exit_room = ()=>{
-    this.showDialogBox("Exit", "Are you sure want the chat room?", (eve)=>{
+    let msg_to_show = this.state.user_type === "admin" ? "You are admin if you left so every one connected in room will be disconnected.\nAre you sure want to exit ?" : "Are you sure want the chat room?";
+    this.showDialogBox("Exit", msg_to_show, (eve)=>{
       if (eve === true){
+        this.showLoadingCircle("Exiting...");
         if (this.state.user_type === "user"){
-          web_sock.emit("leave_room", JSON.stringify({"room_id": this.state.room_id, "user_id": this.state.user_id}));
-          web_sock.close();
-          window.location.href = "/";
+          web_sock.emit("exit_room", JSON.stringify({"room_id": this.state.room_id, "user_id": this.state.user_id, "exit_mode": "leave"}));
         }
         else if (this.state.user_type === "admin"){
-          web_sock.emit("close_room", JSON.stringify({"room_id": this.state.room_id}));
+          web_sock.emit("exit_room", JSON.stringify({"room_id": this.state.room_id, "exit_mode": "close"}));
         }
-        // this.setState({home_redirect: <Navigate to="/" replace={true}/>})
       }
     })
   }

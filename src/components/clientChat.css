@@ -22,7 +22,7 @@
 .client_msg_body .msg_content .message_{
     font-weight: 500;
     font-size: 18px;
-    text-align: le;
+    text-align: left;
     word-wrap: break-word;
     margin-left: 5px;
     margin-right: 5px;

@@ -77,27 +77,28 @@ def changeTypingStatus(data_):
     to_send = {"cur_typing": room_list[data_["room_id"]]["cur_typing"]}
     emit("changeTypingStatus", json.dumps(to_send),  broadcast=True, to=session["my_creds"]["room_id"])
 
-@web_sock.on("leave_room")
-def on_leave_room(data_):
+@web_sock.on("exit_room")
+def on_exit_room(data_):
     data_ = json.loads(data_)
-    leave_room(data_["room_id"], request.sid)
-    idx = 0
-    for itm in room_list[data_["room_id"]]["users"]:
-        if itm["user_id"] == data_["user_id"]:
-            room_list[data_["room_id"]]["users"].pop(idx)
-        idx += 1
-    if data_["user_id"] in room_list[data_["room_id"]]["cur_typing"]:
-        room_list[data_["room_id"]]["current_typing"].remove(data_["user_id"])
-    emit("updateMembers", json.dumps({"members": room_list[data_["room_id"]]["users"]}), broadcast=True, to=data_["room_id"])
-    session.clear()
+    if data_["exit_mode"] == "leave":
+        leave_room(data_["room_id"], request.sid)
+        idx = 0
+        for itm in room_list[data_["room_id"]]["users"]:
+            if itm["user_id"] == data_["user_id"]:
+                room_list[data_["room_id"]]["users"].pop(idx)
+            idx += 1
+        if data_["user_id"] in room_list[data_["room_id"]]["cur_typing"]:
+            room_list[data_["room_id"]]["current_typing"].remove(data_["user_id"])
+        emit("updateMembers", json.dumps({"members": room_list[data_["room_id"]]["users"]}), broadcast=True, to=data_["room_id"])
+        emit("exitResp", json.dumps({"status": "OK", "exit_mode": data_["exit_mode"]}))
+        session.clear()
 
-@web_sock.on("close_room")
-def on_close_room(data_):
-    data_ = json.loads(data_)
-    emit("roomClosed", "", broadcast=True, room=data_["room_id"])
-    del room_list[data_["room_id"]]
-    close_room(data_["room_id"])
-    session.clear()
+    elif data_["exit_mode"] == "close":
+        emit("exitResp", json.dumps({"status": "OK", "exit_mode": data_["exit_mode"]}), broadcast=True, room=data_["room_id"])
+        del room_list[data_["room_id"]]
+        close_room(data_["room_id"])
+        session.clear()
+
 
 @web_sock.on("disconnect")
 def on_disconnect():
