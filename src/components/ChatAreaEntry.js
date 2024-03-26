@@ -93,8 +93,8 @@ export default class ChatAreaEntry extends Component {
         }
         return;
       }
-      let time_differ = Math.ceil((new Date().getTime() - timestemp_last)/1000);
-      if (time_differ > 1){  // high digit at place of 1 will cause delay in changing status to online after user stopped typing.
+      let time_differ = (new Date().getTime() - timestemp_last);
+      if (time_differ > 500){  // high digit at place of 1 will cause delay in changing status to online after user stopped typing.
         is_typing = false;
       }
       else{
@@ -103,7 +103,7 @@ export default class ChatAreaEntry extends Component {
           last_status = "typing";
         }
       }
-    }, 1000);
+    }, 500);
   }
 
   render() {
@@ -116,7 +116,7 @@ export default class ChatAreaEntry extends Component {
         {this.state.clip_list_box}
 
         <div className='interactives'>
-          <div className='text_entry' contentEditable={true} onKeyUp={this.onchange_entry}></div>
+          <div className='text_entry' contentEditable={true} onKeyDown={this.onchange_entry}></div>
           <button className='btn clip' onClick={this.on_click_clip}></button>
           <button className='btn send' onClick={this.on_click_send}></button>
         </div>

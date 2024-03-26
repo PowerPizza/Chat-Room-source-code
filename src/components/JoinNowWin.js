@@ -47,7 +47,7 @@ export default class JoinNowWin extends Component {
         </div>
         <div className='entry_box'>
             <label>Room ID</label>
-            <input type="text" className='entry room_id' spellCheck={false} onChange={set_room_id} value={this.auto_room_id ? this.auto_room_id : null} disabled={this.auto_room_id ? true : false}/>
+            <input type="text" className='entry room_id' spellCheck={false} onChange={set_room_id} value={this.auto_room_id ? this.auto_room_id : ""} disabled={this.auto_room_id ? true : false}/>
         </div>
         <div className='entry_box'>
             <label>User Name</label>
